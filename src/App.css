@@ -1,3 +1,13 @@
-h1{
-  
+.appheading{
+  position: relative;
+  text-align: center;
+  font-size: 50px;
+  top: 100px;
+}
+
+p{
+    position: relative;
+    text-align: center;
+    font-size: x-large;
+    top: 100px;
 }

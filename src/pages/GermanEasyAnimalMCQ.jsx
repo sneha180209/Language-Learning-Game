@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 
 function GermanEasyAnimalMCQ() {
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 4; // Total number of pages
+  
+  ; // Total number of pages
 
   const handlePagination = (pageNumber) => {
     setCurrentPage(pageNumber);

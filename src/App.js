@@ -13,8 +13,21 @@ import FrenchEasyColorMCQ from './pages/FrenchEasyColorMCQ';
 import FrenchEasyAnimalMCQ from './pages/FrenchEasyAnimalMCQ';
 import GermanEasyAnimalMCQ from './pages/GermanEasyAnimalMCQ';
 import GermanEasyColorMCQ from './pages/GermanEasyColorMCQ';
+import db from './server/database.js';
 
 function App() {
+  db.getQuestions('French', 'Easy', 'Colors', 'MCQ', (error, results) => {
+    if (error) {
+      // Handle error
+      console.error('Error getting questions: ' + error);
+    } else {
+      // Handle results
+      console.log('Questions:', results);
+    }
+
+    // Close the database connection when done
+    db.closeConnection();
+  });
   return (
     <Router>
       <nav class="bg-white border-gray-200 dark:bg-gray-900">

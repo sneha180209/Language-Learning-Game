@@ -4,6 +4,8 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import axios from 'axios';
+import { useEffect } from 'react';
 
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
@@ -16,18 +18,16 @@ import GermanEasyColorMCQ from './pages/GermanEasyColorMCQ';
 import db from './server/database.js';
 
 function App() {
-  db.getQuestions('French', 'Easy', 'Colors', 'MCQ', (error, results) => {
-    if (error) {
-      // Handle error
-      console.error('Error getting questions: ' + error);
-    } else {
-      // Handle results
-      console.log('Questions:', results);
-    }
+//   useEffect(() => {
+//     axios.get('/questions')
+//     .then(response => {
+//       console.log('Questions:', response.data);
+//     })
+//     .catch(error => {
+//       console.error('Error getting questions: ' + error);
+//     });
+// }, []);
 
-    // Close the database connection when done
-    db.closeConnection();
-  });
   return (
     <Router>
       <nav class="bg-white border-gray-200 dark:bg-gray-900">

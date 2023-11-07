@@ -1,6 +1,21 @@
 import React from 'react'
+import { auth } from './firebase';
+import { useState } from 'react';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 function SignUp() {
+    const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSignup = async () => {
+    try {
+      await auth.createUserWithEmailAndPassword(email, password);
+      // User has been created and logged in successfully
+    } catch (error) {
+      console.error('Error signing up:', error.message);
+    }
+  }
   return (
     <div>
       <section class="bg-gray-50 dark:bg-gray-900">

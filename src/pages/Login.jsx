@@ -1,6 +1,21 @@
 import React from 'react'
-
+import { auth } from './firebase';
+import { useState } from 'react';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 function Login() {
+
+    const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async () => {
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      // User has been logged in successfully
+    } catch (error) {
+      console.error('Error logging in:', error.message);
+    }
+  }
   return (
     <div>
       <section class="bg-gray-50 dark:bg-gray-900">
